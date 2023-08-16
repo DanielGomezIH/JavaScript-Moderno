@@ -35,7 +35,7 @@ class Persona {
   }
 
   quienSoy() {
-    console.log(`Soy ${this.nombre} y mi identidas es ${this.codigo}`);
+    console.log(`Soy ${this.nombre} y mi identidad es ${this.codigo}`);
   }
 
   miFrase() {
@@ -44,10 +44,28 @@ class Persona {
   }
 }
 
-const spiderman = new Persona(
+class Heroe extends Persona {
+  clan = "Sin Clan";
+
+  constructor(nombre, codigo, frase) {
+    super(nombre, codigo, frase);
+
+    this.clan = "The Avengers";
+  }
+
+  quienSoy() {
+    console.log(`Soy ${this.nombre}, ${this.clan}`);
+    super.quienSoy();
+  }
+}
+
+const spiderman = new Heroe(
   "Peter Parker",
   "Spiderman",
   "Soy tu vecino spiderman"
 );
 
-const ironman = new Persona("Tony Stark", "Ironman", "Yo soy Ironman");
+// const spiderman = new Heroe();
+
+console.log(spiderman);
+spiderman.quienSoy();
